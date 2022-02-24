@@ -67,3 +67,17 @@ void CSMain(uint3 id : SV_DispatchThreadID)
 
 如果要取(42,42)处的像素，则42/8=5, GroupID为(5,5)，即6行6列的工作组的第2x2个线程。
 5,5 \*8,8 +2,2 = 42,42。则DispatchThreadID可视为像素的坐标。
+
+
+## Material Property Block
+对应C++中的ShaderPropertySheet概念。是Shader的属性合集。
+SetPropertyBlock在
+CommandBuffer的命令，会在`ScriptRenderContext::ExecuteScriptableRenderLoop()`中被调用。
+RenderLoop开始之前，会调用PrepareDrawXXXCommand等类似函数，按批准备渲染任务。
+其中，`PrepareDrawRenderersCommand`准备绘制渲染器任务。
+当执行渲染时，会遍历每个命令，调用对应的ExecuteXXX执行对应的命令。
+其中，`ExecuteDrawRenderersCommand`是对应的DrawRenderers命令。
+执行完后，清理命令缓冲区。
+RenderLoop最后，会调用`ScriptableBatchRenderer::UpdateUseSRPBatcher()`命令。
+> 如果显式调用ScriptableRenderContext::Submit,则会立即执行一次ExecuteScriptableRenderLoop()。
+### Prepare
