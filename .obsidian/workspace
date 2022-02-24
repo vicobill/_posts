@@ -1,0 +1,122 @@
+{
+  "main": {
+    "id": "82defb43ae6b59ce",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ed1b9eba8b9c4f6",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4fe901ac546495e5",
+    "type": "split",
+    "children": [
+      {
+        "id": "d29dd7f2cbd02ef7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f73e3d203e23f21",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8a724466678f2fa4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 335
+  },
+  "right": {
+    "id": "da53b15c84083b08",
+    "type": "split",
+    "children": [
+      {
+        "id": "8a5650ce616ee63a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9f32280cf6bcf73e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2bb6f24da66ae158",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "3ab3f68cc2cf2285",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "072bfd856babf62c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "3ed1b9eba8b9c4f6",
+  "lastOpenFiles": [
+    "2022-02-24.md",
+    "git 常见命令.md",
+    "集锦.md",
+    "Game Midware.md",
+    "App 体验基准.md",
+    "A Lang.md",
+    "性能优化：PixelSelection.md",
+    "2022-02-07.md",
+    "Unity/Unity C++.md",
+    "Math CheatSheet.md"
+  ]
+}
