@@ -80,4 +80,9 @@ RenderLoop开始之前，会调用PrepareDrawXXXCommand等类似函数，按批�
 执行完后，清理命令缓冲区。
 RenderLoop最后，会调用`ScriptableBatchRenderer::UpdateUseSRPBatcher()`命令。
 > 如果显式调用ScriptableRenderContext::Submit,则会立即执行一次ExecuteScriptableRenderLoop()。
-### Prepare
+
+- PrepareDrawRenderersCommand(): 
+
+
+## Shader
+VertexShader基本的任务，是将顶点坐标从模型空间转到裁切空间。
