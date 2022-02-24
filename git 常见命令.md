@@ -1,0 +1,1 @@
+git remote prune origin : 删除远程已经不存在的分支
