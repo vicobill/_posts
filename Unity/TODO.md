@@ -1,0 +1,17 @@
+- [ ] Studio Toolset
+- [ ] Scripting Toolset
+	- [ ] Script Editor. Features require:
+		- Minimalist,Simple,Light-weight
+		- Low CPU
+		- Fast Hot-reload
+		- Debugger, Remote Debugger
+		- Syntax Highlighting & auto-complete
+		- Linting
+		- Themes
+	- [ ] Script Debugger
+	- [ ] Profiler
+	- [ ] Plugin & Extentions
+	- [ ] Hot-Reload 
+- [ ] Dear IMGUI Lua-JIT Script Editor
+- [ ] LuaJIT Scripting backend
+- [ ]  I18N Editor
