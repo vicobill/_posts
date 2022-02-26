@@ -86,3 +86,30 @@ RenderLoop最后，会调用`ScriptableBatchRenderer::UpdateUseSRPBatcher()`命�
 
 ## Shader
 VertexShader基本的任务，是将顶点坐标从模型空间转到裁切空间。
+
+
+ScriptableRenderLoopDraw与ScriptableRenderLoopDrawSRPBatcher：
+
+
+BasicShaderRenderState用于判断合批被打断：
+| 属性                   | 打断                          |
+| ---------------------- | ----------------------------- |
+| sharedMaterial         | 不同的材质 DifferentMaterials |
+| pass                   | 多通道shader multipass shader |
+| shader：必须相等       |                               |
+| flags.oddNegativeScale |                               |
+| flags.receiveShadows   | Diffrent Shadow Receiving     |
+| lightmapIndex          | Lightmapped 光照图不对                              |
+判断完以上之后，会调用`CanBatch(CustomPropsAndHash, BatchingFlags,Uint32 batchKeys)`函数，启用额外的检查：
+| 属性                       | 打断                        |
+| -------------------------- | --------------------------- |
+| m_AppliedPassHasInstancing | 合批时不允许Pass Instancing |
+| m_ActiveBatchingKey        | Different Batching Keys     |
+| m_LastCustomPropsHash      |                             |
+在FrameDebugger.h中定义了`enum BatchBreakCause`,不同的MaterialPropertyBlock对应的定义为:kBatchBreakCauseDifferentCustomPropHashes。
+
+在BatcherRenderer.CanBatch()中，当`!m_InstancingBatcher.IsValid()`时会返回`kBatchBreakCauseDifferentCustomPropHashes`。
+```c++
+bool InstancingBatcher::IsValid() const { return m_BatchSize != kDisabledBatchSize; }
+```
+m_BatchSize在InstancingBatcher.BuildFrom()时自动设置。
