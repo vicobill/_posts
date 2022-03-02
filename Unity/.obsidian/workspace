@@ -1,0 +1,100 @@
+{
+  "main": {
+    "id": "b50491ea51554895",
+    "type": "split",
+    "children": [
+      {
+        "id": "6522a973ec1c6a51",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "TDD+DOD/Test Frameworks.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fe380e2acc1b0ef3",
+    "type": "split",
+    "children": [
+      {
+        "id": "c454d8b89c051b3d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1800ac153e8e0f74",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "3bc12d12e8e4157d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ccee7c0314d33a2c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a30ab950f793b9fc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "341e37b4c3975700",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "TDD+DOD/Test Frameworks.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "6522a973ec1c6a51",
+  "lastOpenFiles": [
+    "TDD+DOD/Test Frameworks.md",
+    "Code Layout.md",
+    "HS2 Review.md",
+    "Object序列化.md",
+    "TODO.md",
+    "Toolset.md",
+    "Unity Engine C++ Review.md"
+  ]
+}

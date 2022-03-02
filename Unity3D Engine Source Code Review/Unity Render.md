@@ -113,3 +113,8 @@ BasicShaderRenderState用于判断合批被打断：
 bool InstancingBatcher::IsValid() const { return m_BatchSize != kDisabledBatchSize; }
 ```
 m_BatchSize在InstancingBatcher.BuildFrom()时自动设置。
+
+
+
+## Graphics
+Graphics.DrawMeshInstanced: 只能在内置渲染管线下使用，如果需要在SRP下使用，需要以CommandBuffer添加命令。
