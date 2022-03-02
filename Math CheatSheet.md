@@ -18,7 +18,7 @@ tan(ø) = opposite / adjacent = x / y = 对边/邻边
 rotate2d(p, ø) = mat2(cos(ø), sin(ø)
 					-sin(ø), cos(ø)) * p
 
-sq(x) = x*x
+sq(x) = x
 distance(p1, p2) = p1 - p2
 distance2Sq(v1, v2) = pow(distance(v1.x, v2.x)),2) + pow(distance(v2.y,v1.y),2)
 distance(v1, v2) = sqrt(distaceSq(v1, v2))

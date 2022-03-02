@@ -82,6 +82,19 @@ RenderLoop最后，会调用`ScriptableBatchRenderer::UpdateUseSRPBatcher()`命�
 > 如果显式调用ScriptableRenderContext::Submit,则会立即执行一次ExecuteScriptableRenderLoop()。
 
 - PrepareDrawRenderersCommand(): 
+会根据命令的DrawSettings.overrideMaterialInstanceId去获取材质。如果材质有效，会创建一个OverrideMaterialInfo，设置sharedMaterialData和passIndex。
+
+
+- 如何使MaterialPropertyBlock与SRP Batcher兼容？
+https://forum.unity.com/threads/materialpropertyblock-and-srp-batcher.815499/
+```
+r.realtimeLightmapIndex=0;
+r.realtimeLightmapScaleOffset= <value>
+
+shaderlab:
+UnityPerDraw cbuffer with 
+	float4 unity_DynamicLightmapST
+```
 
 
 ## Shader
@@ -118,3 +131,11 @@ m_BatchSize在InstancingBatcher.BuildFrom()时自动设置。
 
 ## Graphics
 Graphics.DrawMeshInstanced: 只能在内置渲染管线下使用，如果需要在SRP下使用，需要以CommandBuffer添加命令。
+## DrawMeshNow
+
+
+> Lightmap 始终在Linear空间。当在Linear空间，纹理采样时会从Gamma转到Linear空间。如果是在Gamma空间，则不需要转换。所以当转换颜色空间时，需要rebake lightmap。
+> Unity创建的EXR lightmap文件是保存为Linear空间，当导入时会转到Gamma空间。
+> 使用HDR时，渲染执行在Linear空间，Framebuffer中存储的颜色值也是Linea空间，因此所有Blending和PostProcessEffects隐式执行在Linear空间，当最终的backbuffer被写时，应用Gamma矫正。
+> 当HDR未启用，Linear空间被弃用时，特殊的Framebuffer类型被使用，支持sRGB读写（读时，Gamma->Linear;写时,Linear->Gamma）。如果Framebuffer用于Blending或绑为Texture，在使用前转换到Linear空间。当这些buffer被写时，从Linear Space转为Gamma Space。如果在Linear非HDR下渲染，所有后处理特效有其自己的源、目标buffer，以用于sRGB读写，以保证后PostProcessing和PostProcessing Blending是发生在Linear空间下。
+
