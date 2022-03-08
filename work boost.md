@@ -77,4 +77,59 @@ $$ ：当前shell进程的pid
 $! ：后台运行的最后一个进程的pid
 $- ：shell使用的当前选项
 $_ ：之前命令的最后一个参数
+
+myvar = str
+set myvar a
+unset myvar
+readonly myvar=xx
+
+取子字符串：${myvar:0:5}
+字符串长度：${#myvar}
+替换：${myvar/abc/def} # abc替换成def
+
+输入输出重定向：
+	cmd < input-file
+	cmd > output-file
+	cmd >> output-file 附加
+	cmd 2> error-file 错误消息重定向
+
+read 读取
+echo 显示
+
+控制：
+	if .. then ..
+	elif .. then ..
+	else ..
+	fi
+	
+	测试条件可以写为：[ expression ] 或 test expression
+	
+	case .. in 
+	a) cmd-list;;
+	b) cmd-list;;
+	...
+	n) cmd-list;;
+	esac
+	
+	for .. in ..
+	do ..
+	done
+	
+	while ..
+	do ..
+	done
+	
+	until ..
+	do ..
+	done
+	
+	myfunc()
+	{
+		..
+		[return] [n]
+	}
+	
+	脚本跟踪执行： sh -x 或者 set -x|+x -x表示启用，+x表示禁用
+	
+	包含脚本：. ./subscript.sh 或 source ./subscript.sh
 ```
