@@ -139,3 +139,61 @@ Graphics.DrawMeshInstanced: 只能在内置渲染管线下使用，如果需要�
 > 使用HDR时，渲染执行在Linear空间，Framebuffer中存储的颜色值也是Linea空间，因此所有Blending和PostProcessEffects隐式执行在Linear空间，当最终的backbuffer被写时，应用Gamma矫正。
 > 当HDR未启用，Linear空间被弃用时，特殊的Framebuffer类型被使用，支持sRGB读写（读时，Gamma->Linear;写时,Linear->Gamma）。如果Framebuffer用于Blending或绑为Texture，在使用前转换到Linear空间。当这些buffer被写时，从Linear Space转为Gamma Space。如果在Linear非HDR下渲染，所有后处理特效有其自己的源、目标buffer，以用于sRGB读写，以保证后PostProcessing和PostProcessing Blending是发生在Linear空间下。
 
+
+
+Graphics.DrawMeshInstanced需要在Update/LateUpdate/OnRenderObject中调用，且必须使用支持GPU Instancing的shader，其shader代码内类似：
+```hlsl
+#pragma vertex vert
+#pragma fragment frag
+#pragma multi_compile_instancing
+#pragma multi_compile _ DOTS_INSTANCING_ON
+
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
+
+struct Attributes
+{
+ float4 positionOS       : POSITION;
+ float2 uv               : TEXCOORD0;
+ UNITY_VERTEX_INPUT_INSTANCE_ID
+};
+
+struct Varyings
+{
+ float2 uv        : TEXCOORD0;
+ float fogCoord : TEXCOORD1;
+ float4 vertex : SV_POSITION;
+
+ UNITY_VERTEX_INPUT_INSTANCE_ID
+ UNITY_VERTEX_OUTPUT_STEREO
+};
+
+CBUFFER_START(UnityPerMaterial)
+
+ half4 _BaseColor;
+
+CBUFFER_END
+
+Varyings vert(Attributes input)
+{
+ Varyings output = (Varyings)0;
+
+ UNITY_SETUP_INSTANCE_ID(input);
+ UNITY_TRANSFER_INSTANCE_ID(input, output);
+ UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+ VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+ output.vertex = vertexInput.positionCS;
+
+ return output;
+}
+
+half4 frag(Varyings input) : SV_Target
+{
+ UNITY_SETUP_INSTANCE_ID(input);
+ UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+ return _BaseColor;
+}
+
+```
