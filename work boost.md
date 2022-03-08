@@ -8,12 +8,16 @@
 ld: not found -lstdc++
 xcrun --show-sdk-path
 
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/opt/llvm/include/c++/v1:```bash
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/opt/llvm/include/c++/v1:
+```
+
+```bash
 /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
 
 export LIBRARY_PATH=$LIBRARY_PATH:```bash
 /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/lib
 ```
+
 ```
 
 ```
@@ -45,3 +49,32 @@ iterm2:
 | 交换光标处文本   | CTRL + T               |
 | 光标移到行首     | CTRL + A               |
 | 光标移到行尾     | CTRL + E                       |
+
+
+## Shell中的特殊字符
+```
+* : 匹配任意字符串
+? : 匹配单个字符
+[a|b|c]: 匹配任一字符
+!: 不包含
+``: 命令
+
+; ：顺序执行
+| ：管道操作
+&&：前一命令执行成功再执行下一命令
+|| ：前一命令执行不成功，则执行下一命令；如果前一命令执行成功，则不执行下一命令
+
+&：后台操作
+
+
+$0 : 当前脚本的文件名
+$1,$2,$n ： 第几个参数
+$# ： 传入脚本的参数的个数
+$* ：所有位置的参数组成的单字符串
+$@ ：所有位置参数组成的字符串组
+$? ：上一命令的返回值。0-成功
+$$ ：当前shell进程的pid
+$! ：后台运行的最后一个进程的pid
+$- ：shell使用的当前选项
+$_ ：之前命令的最后一个参数
+```
