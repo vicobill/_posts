@@ -133,3 +133,11 @@ echo 显示
 	
 	包含脚本：. ./subscript.sh 或 source ./subscript.sh
 ```
+
+
+查看编译器默认include地址：
+`echo | clang -v -x c++ -E --`
+
+Yahaha.app已损坏，建议移除到垃圾篓：
+`sudo xattr -rc Yahaha.app`
+`sudo xattr -rd compapple.quarantine Yahaha.app`

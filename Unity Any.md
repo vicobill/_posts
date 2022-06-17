@@ -357,3 +357,5 @@ ForwardRendererData:ScriptableRendererData
 
 ## 附录
 - RenderTargetIdentifier：CommandBuffer中用于标识一个RenderTexture。RenderTexture可被标识的方式有多种：一个RenderTexture对象、内置render texture（BuiltinRenderTextureType）中的一种、具名临时render texture(通过CommandBuffer.GetTemporaryRT())
+
+- Unity自身计算Bounds会把缩放考虑进去
