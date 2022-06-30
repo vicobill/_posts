@@ -402,3 +402,6 @@ Unity自动处理深度偏差以匹配Unity深度方向，如果使用Native渲�
 > 用PIX调试时，也需要此指令
 3. Unity构建时，同时生成Visual Studio项目。也可以手动创建空的Visual Studio项目，在调试命令中，将`$(TargetPath)`改成游戏.exe，在命令行参数中，输入`-force-d3d11`
 4. 然后可以用Visual Studio的图形诊断器剖析Shader。
+
+
+# 常见的Shader内置函数
