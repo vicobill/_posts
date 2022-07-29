@@ -1,0 +1,1 @@
+REGISTER_PLAYERLOOP_CALL(Type, Name, Body)
