@@ -141,3 +141,7 @@ echo 显示
 Yahaha.app已损坏，建议移除到垃圾篓：
 `sudo xattr -rc Yahaha.app`
 `sudo xattr -rd compapple.quarantine Yahaha.app`
+
+
+linux下文件的权限：
+`-rwxrwxrwx` 第1位是文件类型，后三位代表User，再3位代表Group，继3位代表其他用户。7(0b111)=rwx,6(0b110)=rw,
