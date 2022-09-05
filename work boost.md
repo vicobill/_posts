@@ -141,3 +141,8 @@ echo 显示
 Yahaha.app已损坏，建议移除到垃圾篓：
 `sudo xattr -rc Yahaha.app`
 `sudo xattr -rd compapple.quarantine Yahaha.app`
+
+Msys2 与Windows Terminal 集成：
+```json
+{ "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}", "name": "MINGW64 / MSYS2", "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64", "startingDirectory": "C:/msys64/home/%USERNAME%", "icon": "C:/msys64/mingw64.ico", "font": { "face": "Lucida Console", "size": 9 } }, { "guid": "{2d51fdc4-a03b-4efe-81bc-722b7f6f3820}", "name": "MINGW32 / MSYS2", "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw32", "startingDirectory": "C:/msys64/home/%USERNAME%", "icon": "C:/msys64/mingw32.ico", "font": { "face": "Lucida Console", "size": 9 } }, { "guid": "{71160544-14d8-4194-af25-d05feeac7233}", "name": "MSYS / MSYS2", "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys", "startingDirectory": "C:/msys64/home/%USERNAME%", "icon": "C:/msys64/msys2.ico", "font": { "face": "Lucida Console", "size": 9 } },
+```
